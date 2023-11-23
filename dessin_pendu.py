@@ -39,9 +39,3 @@ __|__""")
 __|__""")
     else:
         pass
-
-'''
-test
-'''
-for i in range(1,5,1):
-    dessin_pendu(i)
