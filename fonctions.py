@@ -25,7 +25,13 @@ def demander_choix():
     choix=choix.upper()                              #upper() mets toutes le lettres en majuscules tout mettre en majuscules
     progression=choix
     return progression
-
+    
+def verification_lettre_deja_utilise(lettre_choisie, proposition):
+    for a in range(len(lettre_choisie)):
+        if proposition[a] == lettre_choisie:
+            return False
+        else:
+            return True
 
 #update tirets
 def initialisation_progression(mot_a_trouver):
