@@ -25,7 +25,7 @@ def demander_choix():
     choix=choix.upper()                              #upper() mets toutes le lettres en majuscules tout mettre en majuscules
     progression=choix
     return progression
-    
+
 def verification_lettre_deja_utilise(lettre_choisie, proposition):
     for a in range(len(lettre_choisie)):
         if proposition[a] == lettre_choisie:
@@ -38,7 +38,7 @@ def initialisation_progression(mot_a_trouver):
     progression = "_"
     for i in range(len(mot_a_trouver)-1):
         progression += "_"
-    return progression
+    return list(progression)
 
 def affichage_tiret(progression):
     affichage = ""
@@ -84,4 +84,21 @@ __|__""")
   |    ☠
 __|__""")
     else:
-        pass
+        print("test")
+
+def verification(mot_a_trouver, lettre_choisie, erreur):
+    lettres_bonnes = []
+    for i in range(len(mot_a_trouver)):
+        if lettre_choisie == mot_a_trouver[i]:
+            lettres_bonnes.append(i)
+    if lettres_bonnes == []:
+        erreur += 1
+        return None, erreur
+    return lettres_bonnes, erreur
+
+def update_progression(lettre,mot,progression, erreur):
+    positions_lettre, erreur = verification(mot,lettre,erreur)
+    if positions_lettre:
+        for pos in positions_lettre:
+            progression[pos] = lettre
+    return progression,erreur
